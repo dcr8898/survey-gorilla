@@ -1,0 +1,5 @@
+<div class='container>'>
+  <% @surveys.each do |survey| %>
+    <a href=<%= "/surveys/#{survey.id}" %>><%= survey.name %></a> <%= "(created #{survey.nice_date})" %>
+  <% end %>
+</div>
