@@ -3,6 +3,11 @@ get '/signup' do
   erb :'users/signup'
 end
 
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :'users/show'
+end
+
 post '/users' do
   @user = User.new(params[:user])
 
