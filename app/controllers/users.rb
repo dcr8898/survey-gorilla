@@ -9,6 +9,7 @@ post '/users' do
   if @user.save
     redirect '/'
   else
-    "not correct"
+    @errors = @user.errors.full_messages
+    erb :'users/signup'
   end
 end
