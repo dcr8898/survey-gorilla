@@ -1,6 +1,6 @@
 <div id="container">
   <h4>You are taking our poll:</h4>
-  <h1><%= survey.name %></h1>
+  <h1><%= @survey.name %></h1>
   <form method="post" action="/polls">
     <% @survey.questions.each do |question| %>
       <fieldset>
