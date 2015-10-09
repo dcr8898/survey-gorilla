@@ -22,9 +22,10 @@ choices.each do |choice|
 end
 
 100.times do |i|
-  poll = Poll.new(user_id:    User.ids.sample,
-              survey_id:  survey.id,
-              created_at: Faker::Time.backward(60))
-  poll.response.choice_id = Choice.ids.sample
-  poll.save
+  poll = Poll.create(user_id:    User.ids.sample,
+                     survey_id:  survey.id,
+                     created_at: Faker::Time.backward(60))
+
+  Response.create(poll_id: poll.id,
+                choice_id: Choice.ids.sample)
 end
