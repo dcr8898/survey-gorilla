@@ -10,4 +10,8 @@ class Survey < ActiveRecord::Base
     self.created_at.localtime.strftime("%B %-d, %Y")
   end
 
+  def owner
+    self.user.username
+  end
+
 end
