@@ -4,17 +4,22 @@ get '/polls' do
 end
 
 get '/polls/:id' do
-  # Change user_id to session[:id] once it is implemented
-  @poll = Poll.create(user_id: 14, survey_id: params[:id])
-  @survey = Survey.find(params[:id])
-  erb :'polls/show'
+  # Note: This route assumes the user is logged in
+  # Need to implement error handling for this route to function fully
+  @poll = Poll.new(user_id: current_user.id, survey_id: params[:id])
+  if @poll.save
+    @survey = Survey.find(params[:id])
+    erb :'polls/show'
+  else
+    @errors = @poll.errors.full_messages
+    erb :'polls/index'
+  end
 end
 
 post '/polls' do
   poll = params[:response][:poll_id]
   choices = params[:response][:choices]
   @surveys = Survey.all
-  # This is the poll id: 102 This is what is in choices: {"1"=>"4", "2"=>"7"}
   choices.values.each do |choice|
     Response.create(poll_id: poll, choice_id: choice)
   end
