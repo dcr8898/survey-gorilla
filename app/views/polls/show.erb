@@ -7,7 +7,7 @@
         <legend><%= question.text %></legend>
         <p>
           <% question.choices.each do |choice| %>
-            <input type="radio" name="response[choices][<%= choice.id %>]" id="<%= choice.text %>" value="<%= choice.id %>"> <%= choice.text %><br>
+            <input type="radio" name="response[choices][<%= question.id %>]" id="<%= choice.text %>" value="<%= choice.id %>"> <%= choice.text %><br>
           <% end %>
         </p>
       </fieldset>
