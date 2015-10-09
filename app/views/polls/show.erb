@@ -1,14 +1,16 @@
 <h4>You are taking our poll:</h4>
 <h1><%= survey.name %></h1>
-<form method="post" action="/polls">\
-  <ol>
-    <% @survey.questions.each do |question| %>
-      <fieldset>
-        <legend><%= question.text %></legend>
-          <% question.choices.each do |choice| %>
-            <input type="radio" name="response[choice_id]" value="<%= choice.id %>"> <%= choice.text %><br>
-          <% end %>
-        <input id="response_poll_id_input" name="response[poll_id]" type="hidden" value="<%= @poll.id %>">
-
-  <input type="submit" value="Vote" class="button">
+<form method="post" action="/polls">
+  <% @survey.questions.each do |question| %>
+    <fieldset>
+      <legend><%= question.text %></legend>
+      <p>
+        <% question.choices.each do |choice| %>
+          <input type="radio" name="response[choice_id]" id="<%= choice.text %>" value="<%= choice.id %>"> <%= choice.text %><br>
+        <% end %>
+      </p>
+    </fieldset>
+  <% end %>
+  <input id="response_poll_id_input" name="response[poll_id]" type="hidden" value="<%= @poll.id %>">
+  <p><input type="submit" value="Submit Poll Responses" class="button"></p>
 </form>
