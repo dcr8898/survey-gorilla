@@ -1,1 +1,15 @@
-<h1>Hello</h1>
+<form action="/users" method="post">
+  <div>
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="user[username]">
+  </div>
+
+  <div>
+    <label for="password">Password: </label>
+    <input type="password" id="password" name="user[password]">
+  </div>
+
+  <div class="button">
+    <button type="submit">Signup</button>
+  </div>
+</form>
