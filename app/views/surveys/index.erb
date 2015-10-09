@@ -1,4 +1,4 @@
-<div class='container>'>
+<div class='container'>
   <h3>Check out our surveys:</h3>
   <% @surveys.each do |survey| %>
     <a href=<%= "/surveys/#{survey.id}" %>><%= survey.name %></a> <%= "(created #{survey.nice_date} by #{survey.owner})" %>
