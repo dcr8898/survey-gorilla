@@ -1,5 +1,4 @@
 <div id="container">
-  <h1>Take one of our polls!</h1>
-  <h3>Click on any of the below polls to submit your responses</h3>
-  <%= erb :_list_of_surveys, locals: {surveys: @surveys} %>
+  <h1>Here are all of the polls that have been recorded:</h1>
+  <%= erb :_list_of_polls, locals: {polls: @polls} %>
 </div>

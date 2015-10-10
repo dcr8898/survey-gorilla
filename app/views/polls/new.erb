@@ -1,0 +1,18 @@
+<div id="container">
+  <h4>You are taking our poll:</h4>
+  <h1><%= @poll.survey.name %></h1>
+  <form method="post" action="/surveys/<%= @poll.survey.id %>/polls">
+    <% @poll.questions.each do |question| %>
+      <fieldset>
+        <legend><%= question.text %></legend>
+        <p>
+          <% question.choices.each do |choice| %>
+            <input type="radio" name="response[choices][<%= question.id %>]" id="<%= choice.text %>" value="<%= choice.id %>" required> <%= choice.text %><br>
+          <% end %>
+        </p>
+      </fieldset>
+    <% end %>
+    <input id="response_poll_id_input" name="response[poll_id]" type="hidden" value="<%= @poll.id %>">
+    <p><input type="submit" value="Submit Poll Responses" class="button"></p>
+  </form>
+</div>
