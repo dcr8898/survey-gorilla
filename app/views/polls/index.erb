@@ -1,9 +1,5 @@
 <div id="container">
   <h1>Take one of our polls!</h1>
   <h3>Click on any of the below polls to submit your responses</h3>
-  <ul>
-    <% @surveys.each do |survey| %>
-      <li><a href="/polls/<%= survey.id %>"><%= survey.name %></a></li>
-    <% end %>
-  </ul>
+  <%= erb :_list_of_surveys, locals: {surveys: @surveys} %>
 </div>
