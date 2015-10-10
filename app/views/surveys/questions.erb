@@ -1,0 +1,14 @@
+<div class='container'>
+  <h3><%= @survey.name %></h3>
+  <h6><%= "(created by #{@survey.owner} on #{@survey.nice_date})" %></h6>
+  <% @survey.questions.each do |question| %>
+    <ol>
+      <li><%= question.text %></li>
+      <% question.choices.each do |choice| %>
+        <ul>
+          <li><%= choice.text %></li>
+        </ul>
+      <% end %>
+    </ol>
+  <% end %>
+</div>

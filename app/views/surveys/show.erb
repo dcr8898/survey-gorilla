@@ -1,0 +1,6 @@
+<div class='container'>
+  <h3><%= @survey.name %></h3>
+  <h6><%= "(created by #{@survey.owner} on #{@survey.nice_date})" %></h6>
+    <p><a href=<%= "/surveys/#{@survey.id}/questions" %>><%= "#{@survey.question_count} questions" %></a></p>
+    <p><a href=<%= "/surveys/#{@survey.id}/polls" %>><%= "#{@survey.poll_count} polls" %></a></p>
+</div>

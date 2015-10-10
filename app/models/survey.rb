@@ -14,4 +14,12 @@ class Survey < ActiveRecord::Base
     self.user.username
   end
 
+  def question_count
+    self.questions.count
+  end
+
+  def poll_count
+    self.polls.count
+  end
+
 end
