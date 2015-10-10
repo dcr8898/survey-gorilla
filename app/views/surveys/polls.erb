@@ -1,0 +1,10 @@
+<div class='container'>
+  <h3> <a href=<%= "/surveys/#{@survey.id}" %>><%= @survey.name %></a></h3>
+  <h6><%= "(created by #{@survey.owner} on #{@survey.nice_date})" %></h6>
+  <p>(click to see results)</p>
+    <% @survey.polls.each do |poll| %>
+      <ul>
+        <li><a href=<%= "/polls/#{poll.id}" %>> <%= "#{poll.nice_date} by #{poll.taker}" %></a></li>
+      </ul>
+    <% end %>
+</div>

@@ -7,4 +7,13 @@ class Poll < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :survey_id, presence: true
+
+  def nice_date
+    self.created_at.localtime.strftime("%B %-d, %Y")
+  end
+
+  def taker
+    self.user.username
+  end
+
 end
