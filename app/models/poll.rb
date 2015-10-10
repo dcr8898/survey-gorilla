@@ -19,8 +19,4 @@ class Poll < ActiveRecord::Base
   def survey_name
     self.survey.name
   end
-
-  def questions
-    self.survey.questions
-  end
 end
