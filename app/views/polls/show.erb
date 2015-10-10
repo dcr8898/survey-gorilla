@@ -1,18 +1,16 @@
-<div id="container">
-  <h4>You are taking our poll:</h4>
-  <h1><%= @survey.name %></h1>
-  <form method="post" action="/polls">
-    <% @survey.questions.each do |question| %>
-      <fieldset>
-        <legend><%= question.text %></legend>
-        <p>
-          <% question.choices.each do |choice| %>
-            <input type="radio" name="response[choices][<%= question.id %>]" id="<%= choice.text %>" value="<%= choice.id %>"> <%= choice.text %><br>
+<div class='container'>
+  <h3>Survey: <%= @poll.survey_name %></h3>
+  <h6><%= "(taken by #{@poll.taker} on #{@poll.nice_date})" %></h6>
+  <% @poll.responses.each do |response| %>
+    <div>
+      <p>Question: <em><%= response.question %></em></p>
+      <p> Response: <strong><%= response.text %></strong></p>
+      <p>From these choices:</p>
+        <ul>
+          <% response.question_choices.each do |choice| %>
+            <li><%= choice.text %></li>
           <% end %>
-        </p>
-      </fieldset>
-    <% end %>
-    <input id="response_poll_id_input" name="response[poll_id]" type="hidden" value="<%= @poll.id %>">
-    <p><input type="submit" value="Submit Poll Responses" class="button"></p>
-  </form>
+        </ul>
+    </div>
+  <% end %>
 </div>
