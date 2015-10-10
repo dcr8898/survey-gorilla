@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }
 
   def password
-    binding.pry
     @password ||= Password.new(password_hash)
   end
 
