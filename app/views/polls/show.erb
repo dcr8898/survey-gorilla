@@ -3,11 +3,11 @@
   <h6><%= "(taken by #{@poll.taker} on #{@poll.nice_date})" %></h6>
   <% @poll.responses.each do |response| %>
     <div>
-      <p>Question: <em><%= response.question %></em></p>
+      <p>Question: <em><%= response.question.text %></em></p>
       <p> Response: <strong><%= response.text %></strong></p>
       <p>From these choices:</p>
         <ul>
-          <% response.question_choices.each do |choice| %>
+          <% response.choices.each do |choice| %>
             <li><%= choice.text %></li>
           <% end %>
         </ul>
