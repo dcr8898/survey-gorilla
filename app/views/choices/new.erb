@@ -1,16 +1,17 @@
 <div class='container'>
   <h3><%= @question.survey.name %></h3>
+  <p><%= @question.text %></p>
   <%= erb :'questions/_question', locals: {question: @question} %>
-  <p>Next choice:</p>
+  <p>Add choice:</p>
   <%= erb :_form_errors %>
   <form role="form" action=<%= "/questions/#{@question.id}/choices" %> method="post">
     <div>
       <label for='choice-text'>Choice:</label>
       <input id='choice-text' type='text' name='choice[text]'/>
     <div>
-    <input class="button" type="submit" value="Create Choice"/>
+    <input class="button" type="submit" value="Add Choice"/>
   </form>
   <p>
-    <a href=<%= "/surveys/#{@question.survey_id}/questions" %>>Click here when you are done creating choices for this question</a>
+    <a href=<%= "/surveys/#{@question.survey_id}/questions/new" %>>Click here when you are done creating choices for this question</a>
   </p>
 </div>
