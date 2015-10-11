@@ -18,7 +18,7 @@ post '/login' do
     @errors = ["Cannot find user #{params[:username]}."]
     erb :'users/login'
   elsif @user.password == params[:password]
-    session[:user_id] == @user.id
+    session[:user_id] = @user.id
     redirect '/'
   else
     @errors = ["Incorrect password."]
@@ -35,6 +35,7 @@ post '/users' do
   @user = User.new(params[:user])
 
   if @user.save
+    session[:user_id] = @user.id
     redirect '/'
   else
     @errors = @user.errors.full_messages
