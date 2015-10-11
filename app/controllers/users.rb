@@ -1,6 +1,24 @@
 get '/signup' do
-  # if user is logged in, redirect, else
   erb :'users/signup'
+end
+
+get '/login' do
+  erb :'users/login'
+end
+
+post '/login' do
+  @user = User.find_by(username: params[:username])
+
+  if @user.nil?
+    @errors = ["Cannot find user #{params[:username]}."]
+    erb :'users/login'
+  elsif @user.password == params[:password]
+    session[:user_id] == @user.id
+    redirect '/'
+  else
+    @errors = ["Incorrect password."]
+    erb :'users/login'
+  end
 end
 
 get '/users/:id' do
