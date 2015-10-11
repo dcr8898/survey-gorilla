@@ -1,0 +1,6 @@
+<ol>
+  <% questions.each do |question| %>
+    <li><%= question.text %></li>
+    <%= erb :'/questions/_question', locals: {question: question} %>
+  <% end %>
+</ol>
