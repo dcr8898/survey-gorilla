@@ -3,8 +3,8 @@ get '/polls' do
   erb :'polls/index'
 end
 
-get'/polls/:poll_id/responses' do
-  @poll = Poll.find(params[:poll_id])
+get'/polls/:poll_id/responses' do |id|
+  @poll = Poll.find(id)
   erb :'polls/show'
 end
 
