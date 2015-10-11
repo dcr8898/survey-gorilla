@@ -20,4 +20,4 @@ Our kanban board was hosted on Trello.  It may be viewed [here](https://trello.c
 Our mockups/wireframes may be viewed [here](TBD).
 
 ##Development
-Team Gorilla utilizes a streamlined agile process based on the Kanban system (see Our Process above).  To ensure proper git hygiene, we utilized the [Steven G. Harms Enhanced Rebase Optimized Team Enabled Git Workflow](https://github.com/nyc-mud-turtles-2015/phase-2-guide/blob/nyc/resources/git_workflow.md).
+Team Gorilla utilizes a streamlined agile process based on the Kanban system (see Our Process above).  To ensure proper git hygiene, we utilized the [Steven G. Harms Enhanced Rebase Optimized Team Enabled Git Workflow(tm)](https://github.com/nyc-mud-turtles-2015/phase-2-guide/blob/nyc/resources/git_workflow.md).
