@@ -3,6 +3,11 @@ get '/polls' do
   erb :'polls/index'
 end
 
+get'/polls/:poll_id/responses' do
+  @poll = Poll.find(params[:poll_id])
+  erb :'polls/show'
+end
+
 get '/polls/:id' do
   @poll = Poll.find(params[:id])
   erb :'polls/show'
@@ -16,9 +21,7 @@ end
 # Need to implement error handling on surveys/index route 
 # for this route to function fully
 get '/surveys/:survey_id/polls/new' do
-  # Note: Need to change this to 'user_id: current_user' when 
-  # user authentication is added
-  @poll = Poll.new(user_id: 1, survey_id: params[:survey_id])
+  @poll = Poll.new(user_id: current_user.id, survey_id: params[:survey_id])
   if @poll.save
     erb :'polls/new'
   else
@@ -28,10 +31,10 @@ get '/surveys/:survey_id/polls/new' do
 end
 
 post '/surveys/:survey_id/polls' do
-  @poll = Poll.find(params[:response][:poll_id])
+  poll = Poll.find(params[:response][:poll_id])
   choices = params[:response][:choices]
   choices.values.each do |choice|
-    Response.create(poll_id: @poll.id, choice_id: choice)
+    Response.create(poll_id: poll.id, choice_id: choice)
   end
-  erb :'polls/complete'
+  redirect "/polls/#{poll.id}/responses"
 end
