@@ -6,6 +6,11 @@ get '/login' do
   erb :'users/login'
 end
 
+get '/logout' do
+  session.clear
+  redirect '/'
+end
+
 post '/login' do
   @user = User.find_by(username: params[:username])
 
