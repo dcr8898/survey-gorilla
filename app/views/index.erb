@@ -1,0 +1,10 @@
+<div id="container">
+  <% if logged_in? %>
+    <h1>Hello there! Tell us what you would like to do:</h1>
+    <h3><a href="/surveys/new">Create a survey</a></h3>
+    <h3><a href="/polls/new">Take a poll</a></h3>
+    <h3><a href="/users/<%= current_user.id %>">View my surveys and polls</a></h3>
+  <% else %>
+    <h1>Hello there! <a href="/signup">Sign up</a> or <a href="/login">log in</a> to create a survey or take a poll!</h1>
+  <% end %>
+</div>

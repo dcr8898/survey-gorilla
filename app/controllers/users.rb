@@ -33,7 +33,7 @@ post '/login' do
     erb :'users/login'
   elsif @user.password == params[:password]
     session[:user_id] = @user.id
-    redirect '/surveys'
+    redirect '/'
   else
     @errors = ["Incorrect password."]
     erb :'users/login'
