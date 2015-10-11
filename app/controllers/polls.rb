@@ -21,7 +21,7 @@ end
 # Need to implement error handling on surveys/index route 
 # for this route to function fully
 get '/surveys/:survey_id/polls/new' do
-  @poll = Poll.new(user_id: current_user, survey_id: params[:survey_id])
+  @poll = Poll.new(user_id: current_user.id, survey_id: params[:survey_id])
   if @poll.save
     erb :'polls/new'
   else
