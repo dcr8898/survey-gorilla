@@ -1,0 +1,17 @@
+<div class='container'>
+  <h3><%= @survey.name %></h3>
+  <p>Questions so far:</p>
+  <%= erb :'questions/_questions', locals: {questions: @survey.questions} %>
+  <p>Next question:</p>
+  <%= erb :_form_errors %>
+  <form role="form" action=<%= "/surveys/#{@survey.id}/questions" %> method="post">
+    <div>
+      <label for='question-text'>Question:</label>
+      <input id='question-text' type='text' name='question[text]'/>
+    <div>
+    <input class="button" type="submit" value="Create Question"/>
+  </form>
+  <p>
+    <a href=<%= "/surveys/#{@survey.id}/questions" %>>Click here when you are done creating this survey</a>
+  </p>
+</div>
