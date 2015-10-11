@@ -5,7 +5,9 @@ An end-to-end survey creation and poll taking app built on Sinatra, jQuery, and 
 ##Team Gorilla:
 
 [Steven Leiva](https://github.com/StevenXL)
+
 [Damian C. Rossney](https://github.com/dcr8898)
+
 [Phil Sofia](https://github.com/philsof)
 
 ##Survey Gorilla
