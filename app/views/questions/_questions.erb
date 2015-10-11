@@ -1,6 +1,10 @@
-<ol>
-  <% questions.each do |question| %>
-    <li><%= question.text %></li>
-    <%= erb :'/questions/_question', locals: {question: question} %>
-  <% end %>
-</ol>
+<% if questions.empty? %>
+ (no questions yet)
+<% else %>
+  <ol>
+    <% questions.each do |question| %>
+      <li><%= question.text %></li>
+      <%= erb :'/questions/_question', locals: {question: question} %>
+    <% end %>
+  </ol>
+<% end %>

@@ -1,5 +1,9 @@
-<ul>
-  <% question.choices.each do |choice| %>
-    <li><%= choice.text %></li>
-  <% end %>
-</ul>
+<% if question.choices.empty? %>
+ (no choices yet)
+<% else %>
+  <ul>
+    <% question.choices.each do |choice| %>
+      <li><%= choice.text %></li>
+    <% end %>
+  </ul>
+<% end %>

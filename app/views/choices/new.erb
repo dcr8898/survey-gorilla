@@ -1,0 +1,16 @@
+<div class='container'>
+  <h3><%= @question.survey.name %></h3>
+  <%= erb :'questions/_question', locals: {question: @question} %>
+  <p>Next choice:</p>
+  <%= erb :_form_errors %>
+  <form role="form" action=<%= "/questions/#{@question.id}/choices" %> method="post">
+    <div>
+      <label for='choice-text'>Choice:</label>
+      <input id='choice-text' type='text' name='choice[text]'/>
+    <div>
+    <input class="button" type="submit" value="Create Choice"/>
+  </form>
+  <p>
+    <a href=<%= "/surveys/#{@question.survey_id}/questions" %>>Click here when you are done creating choices for this question</a>
+  </p>
+</div>

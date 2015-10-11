@@ -14,7 +14,7 @@ post '/surveys/:survey_id/questions' do
   @question = Question.new(params[:question])
   @question.survey_id = @survey.id
   if @question.save
-    redirect "/surveys/#{@question.survey.id}/questions/#{@question.id}/choices/new"
+    redirect "/questions/#{@question.id}/choices/new"
   else
     @errors = @question.errors.full_messages
     erb :'questions/new'
