@@ -57,3 +57,20 @@ post '/users' do
     erb :'users/signup'
   end
 end
+
+put '/users/:id' do
+  @user = current_user
+
+  if @user.password == params[:current_password]
+    @user.update(params[:user])
+
+    if @user.errors.nil?
+      redirect '/surveys'
+    else
+      @errors = @user.errors.full_messages
+      erb :'users/edit'
+    end
+  else
+    @errors = ["Incorrect Password"]
+  end
+end
