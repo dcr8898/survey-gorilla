@@ -2,7 +2,7 @@ users = Array.new(100) { "#{Faker::Name.first_name}_#{Faker::Name.last_name}"}.u
 
 50.times do |i|
   User.create(username:      users[i],
-              password_hash: users[i])
+              password: users[i])
 end
 
 survey = Survey.create(user_id: User.first.id,
