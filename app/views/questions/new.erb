@@ -3,6 +3,7 @@
   <p>Questions so far:</p>
   <%= erb :'questions/_questions', locals: {questions: @survey.questions} %>
   <p>Next question:</p>
+  <%= erb :_form_errors %>
   <form role="form" action=<%= "/surveys/#{@survey.id}/questions" %> method="post">
     <div>
       <label for='question-text'>Question:</label>
