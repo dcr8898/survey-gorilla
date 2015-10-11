@@ -3,6 +3,11 @@ get '/polls' do
   erb :'polls/index'
 end
 
+get '/polls/new' do
+  @surveys = Survey.all
+  erb :'polls/new'
+end
+
 get'/polls/:poll_id/responses' do |id|
   @poll = Poll.find(id)
   erb :'polls/show'
@@ -18,7 +23,7 @@ end
 get '/surveys/:survey_id/polls/new' do
   @poll = Poll.new(user_id: current_user.id, survey_id: params[:survey_id])
   if @poll.save
-    erb :'polls/new'
+    erb :'polls/new_specific'
   else
     @errors = @poll.errors.full_messages
     erb :'surveys/index'
