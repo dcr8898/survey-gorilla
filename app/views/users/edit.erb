@@ -1,0 +1,31 @@
+<h3>Update / Change Password</h3>
+<% if @errors %>
+  <% @errors.each do |error_message| %>
+    <p><%= error_message %></p>
+  <% end %>
+<% end %>
+
+<form action="/users/<%= @user.id %>" method="post">
+  <div>
+    <input type="hidden" name="_method" value="put">
+  </div>
+
+  <div>
+    <label for="current-password">Current Password: </label>
+    <input type="password" id="current-password" name="current_password">
+  </div>
+
+  <div>
+    <label for="password-desired">New Password: </label>
+    <input type="password" id="password-desired" name="user[password]">
+  </div>
+
+  <div>
+    <label for="password-confirmation">Confirm New Password: </label>
+    <input type="password" id="password-confirmation" name="user[password_confirmation]">
+  </div>
+
+  <div class="button">
+    <button type="submit">Update Password</button>
+  </div>
+</form>
