@@ -16,4 +16,7 @@ class Poll < ActiveRecord::Base
     self.user.username
   end
 
+  def survey_name
+    self.survey.name
+  end
 end
