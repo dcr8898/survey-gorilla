@@ -1,0 +1,23 @@
+<div class='container'>
+  <h3><%= @survey.name %></h3>
+  <p>Create your survey below (all fields must contain text):</p>
+  <form id="surveyx" role="form" action=<%= "/surveys/#{@survey.id}/questionsx" %> method="post">
+    <div style='visibility: hidden;' class='question-group' id="question_0">
+      <label for='question-text'>Question:</label>
+      <input id='question-text' type='text' name='survey[0][0]'/>
+      <div class='choice-group' id='choices_0'>
+        <p>Choices:</p>
+        <input id='choice-text' type='text' name='survey[0][1]'/>
+      </div>
+    </div>
+    <div class='question-group' id="question_1">
+      <label for='question-text'>Question:</label>
+      <input id='question-text' type='text' name='survey[1][0]'/>
+      <div class='choice-group' id='choices_1'>
+        <p>Choices:</p>
+        <input id='choice-text' type='text' name='survey[1][1]'/>
+      </div>
+    </div>
+    <input class="button" type="submit" value="Finish Survey"/>
+  </form>
+</div>

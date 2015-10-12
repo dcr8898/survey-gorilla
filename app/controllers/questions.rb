@@ -21,3 +21,11 @@ post '/surveys/:survey_id/questions' do
   end
 end
 
+get '/surveys/:survey_id/questions/newx' do
+  @survey = Survey.find_by(id: params[:survey_id])
+  erb :'questions/newx'
+end
+
+post '/surveys/:survey_id/questionsx' do
+  p params[:survey].to_s
+end
