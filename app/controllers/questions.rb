@@ -27,5 +27,14 @@ get '/surveys/:survey_id/questions/newx' do
 end
 
 post '/surveys/:survey_id/questionsx' do
-  p params[:survey].to_s
+  survey_id = params[:survey_id]
+  new_questions = params[:survey]
+  new_questions.each_value do |question_hash|
+    question = Question.create(survey_id: survey_id,
+                               text: question_hash.delete('0'))
+    question_hash.each_value do |choice_text|
+      Choice.create(question_id: question.id, text: choice_text)
+    end
+  end
+  redirect "/surveys/#{survey_id}/questions"
 end
