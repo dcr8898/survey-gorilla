@@ -1,7 +1,30 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  
+  $( "#take_a_poll_link" ).click(function( event ) {
+    event.preventDefault();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    $.ajax({
+      type: "get",
+      url: "/polls/new",
+      }).done(function( response ) {
+        $( "#container" ).replaceWith( response )
+    })
+  })
+
+  $( "#take_poll_form" ).submit(function( event ) {
+    event.preventDefault();
+
+    $.ajax({
+      type: "post",
+      url: "/surveys/:survey_id/polls",
+      data: $("#take_poll_form").serialize()
+      }).done(function( response ) {
+        $( "#container" ).replaceWith( response )
+    })
+  })
+
+
+
+
+
 });
