@@ -7,7 +7,7 @@ $(document).ready(function() {
       type: "get",
       url: "/polls/new",
       }).done(function( response ) {
-        $( "#container" ).replaceWith( response )
+        $( ".container" ).replaceWith( response )
     })
   })
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
       url: "/surveys/:survey_id/polls",
       data: $("#take_poll_form").serialize()
       }).done(function( response ) {
-        $( "#container" ).replaceWith( response )
+        $( ".container" ).replaceWith( response )
     })
   })
 

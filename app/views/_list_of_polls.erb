@@ -1,5 +1,5 @@
-<ul>
+<div class="list-group">
   <% polls.each do |poll| %>
-    <li><a href="/polls/<%= poll.id %>">"<%= poll.survey_name %>" taken <%= poll.nice_date %> by <%= poll.taker %></a></li>
+    <a class="list-group-item" href="/polls/<%= poll.id %>">"<%= poll.survey_name %>" taken <%= poll.nice_date %> by <%= poll.taker %></a>
   <% end %>
-</ul>
+</div>

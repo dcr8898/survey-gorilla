@@ -7,10 +7,17 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="/js/bootstrap.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="/css/application.css"> -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -19,9 +26,35 @@
 </head>
 <body>
 <% if logged_in? %>
-  <nav><a href="/users/<%= current_user.id %>"><%= current_user.username %></a> | <a href="/">Home</a> | <a href="/logout">Logout</a></nav>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Survey Gorilla</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
+          <li><a href="/logout">Logout</a></li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
 <% else %>
-  <nav><a href="/signup">Sign Up</a> | <a href="/login">Login</a> | <a href="/">Home</a></nav>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Survey Gorilla</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Login</a></li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
 <% end %>
 <div id="content">
   <%= yield %>
