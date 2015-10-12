@@ -7,7 +7,11 @@ post '/surveys' do
   @survey = Survey.new(params[:survey])
   @survey.user_id = current_user.id
   if @survey.save
-    redirect "/surveys/#{@survey.id}/questions/new"
+    if params[:js]
+      redirect "/surveys/#{@survey.id}/questions/newx"
+    else
+      redirect "/surveys/#{@survey.id}/questions/new"
+    end
   else
     @errors = @survey.errors.full_messages
     erb :'surveys/new'

@@ -4,11 +4,11 @@
   <%= erb :'questions/_questions', locals: {questions: @survey.questions} %>
   <p>Next question:</p>
   <%= erb :_form_errors %>
-  <form role="form" action=<%= "/surveys/#{@survey.id}/questions" %> method="post">
-    <div>
+  <form class="form" action=<%= "/surveys/#{@survey.id}/questions" %> method="post">
+    <div class="form-group">
       <label for='question-text'>Question:</label>
       <input id='question-text' type='text' name='question[text]'/>
-    <div>
+    </div>
     <input class="button" type="submit" value="Create Question"/>
   </form>
   <p>
