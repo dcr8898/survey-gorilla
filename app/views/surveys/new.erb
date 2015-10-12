@@ -1,11 +1,11 @@
 <div class="container">
-  <h3>Create your own survey!</h3>
+  <h3>Name your survey!</h3>
   <%= erb :_form_errors %>
-  <form role="form" action='/surveys' method="post">
-    <div>
-      <label for="survey-name">Deck Name:</label>
-      <input id="survey-new" type="text" name="survey[name]"/>
+  <form class="form" id='new-survey-form' action='/surveys' method="post">
+    <div class="form-group">
+      <label for="survey-name">Survey Name:</label>
+      <input id="survey-name" type="text" name="survey[name]"/>
     </div>
-    <input class="button" type="submit" value="Create Survey"/>
+    <input class="btn btn-primary" type="submit" value="Create Survey"/>
   </form>
 </div>

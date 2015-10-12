@@ -33,6 +33,7 @@ $(document).ready(function() {
     $(this).prev().append(addChoice(questionId));
   });
 
+  $("<input type='hidden' name='js' value='true'>").prependTo('#new-survey-form');
 
 });
 
