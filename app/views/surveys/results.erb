@@ -1,0 +1,36 @@
+<div class='container'>
+  <h3>Results for "<%= @survey.name %>"</h3>
+  <h6><%= "(created by #{@survey.owner} on #{@survey.nice_date})" %></h6>
+  <hr/>
+  <% @survey.results.each_with_index do |question, index| %>
+    <div class='row'>
+      <div class="col-lg-6">
+      <p class='lead'><%= question[0] %></p>
+      <table id=<%= "table_#{index}" %> class='table table-striped'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Responses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% question[1].each_pair do |choice, count| %>
+            <tr>
+              <th>
+                <%= choice %>
+              </th>
+              <td>
+                <%= count %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+      <div class="col-lg-6">
+        <div class='pie-chart' id=<%= "chart_#{index}" %>></div>
+      </div>
+    </div>
+    <hr/>
+  <% end %>
+</div>

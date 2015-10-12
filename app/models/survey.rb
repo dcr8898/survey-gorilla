@@ -22,4 +22,12 @@ class Survey < ActiveRecord::Base
     self.polls.count
   end
 
+  def results
+    self.questions.each_with_object({}) do |question, survey_results|
+      survey_results[question.text] = question.choices.map.with_object({}) do |choice, data_hash|
+        data_hash[choice.text] = choice.responses.count
+      end
+    end
+  end
+
 end
