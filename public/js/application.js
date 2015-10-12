@@ -57,7 +57,7 @@ function addQuestion() {
   return html;
 }
 
-function addChoice(index, questionId) {
+function addChoice(questionId) {
   var choiceId = $('#question_' + questionId + ' .choice').length + 1;
   var html = "<div class='form-group choice'>" +
              "<label class='form-label col-lg-1' for='choice_" + questionId + "_" + choiceId + "'>Choice:</label>" +
