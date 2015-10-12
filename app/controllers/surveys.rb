@@ -23,6 +23,11 @@ get '/surveys/new' do
   erb :'surveys/new'
 end
 
+get '/surveys/:survey_id/results' do
+  @survey = Survey.find_by(id: params[:survey_id])
+  erb :'surveys/results'
+end
+
 get '/surveys/:survey_id' do
   @survey = Survey.find_by(id: params[:survey_id])
   erb :'surveys/show'

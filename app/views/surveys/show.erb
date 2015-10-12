@@ -3,6 +3,7 @@
   <h6><%= "(created by #{@survey.owner} on #{@survey.nice_date})" %></h6>
   <div class="list-group">
     <a class="list-group-item" href=<%= "/surveys/#{@survey.id}/questions" %>><%= "#{@survey.question_count} questions" %></a>
+    <a class="list-group-item" href=<%= "/surveys/#{@survey.id}/results" %>>Survey Results</a>
     <a class="list-group-item" href=<%= "/surveys/#{@survey.id}/polls" %>><%= "#{@survey.poll_count} polls" %></a>
   </div>
 </div>

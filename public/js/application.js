@@ -35,6 +35,11 @@ $(document).ready(function() {
 
   $("<input type='hidden' name='js' value='true'>").prependTo('#new-survey-form');
 
+  var chartCount = $('.pie-chart').length;
+  for (var i = 0; i < chartCount; i++) {
+    addChart($('#chart_' + i));
+  }
+
 });
 
 function addQuestion() {
@@ -52,11 +57,28 @@ function addQuestion() {
   return html;
 }
 
-function addChoice(questionId) {
+function addChoice(index, questionId) {
   var choiceId = $('#question_' + questionId + ' .choice').length + 1;
   var html = "<div class='form-group choice'>" +
              "<label class='form-label col-lg-1' for='choice_" + questionId + "_" + choiceId + "'>Choice:</label>" +
              "<input class='col-lg-8' id='choice_" + questionId + "_" + choiceId + "' type='text' name='survey[" + questionId + "][" + choiceId + "]'/>" +
              "</div>";
   return html;
+}
+
+function addChart(element) {
+  element.highcharts({
+      data: {table: 'table_' + element.attr('id').replace('chart_', '')},
+      chart: {plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false,
+              type: 'pie'},
+      tooltip: {pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'},
+      plotOptions: {pie: {allowPointSelect: true,
+                          cursor: 'pointer',
+                          dataLabels: {enabled: true,
+                                       format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                       style: {color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'}}}
+    }
+  });
 }
