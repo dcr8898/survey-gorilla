@@ -22,11 +22,11 @@ choices.each do |choice|
 end
 
 question2 = Question.create(survey_id: survey.id,
-                           text:      "How awesome is this?")
+                           text:      "How much do you love Steven G. Harms?")
 
 choices = ["A lot",
            "A whole lot",
-           "A super-duper-lot",
+           "Like, ridiculously",
            "Around the moon and back again"]
 
 choices.each do |choice|
