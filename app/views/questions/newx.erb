@@ -1,23 +1,26 @@
 <div class='container'>
   <h3><%= @survey.name %></h3>
   <p>Create your survey below (all fields must contain text):</p>
-  <form id="surveyx" role="form" action=<%= "/surveys/#{@survey.id}/questionsx" %> method="post">
-    <div style='visibility: hidden;' class='question-group' id="question_0">
-      <label for='question-text'>Question:</label>
-      <input id='question-text' type='text' name='survey[0][0]'/>
-      <div class='choice-group' id='choices_0'>
-        <p>Choices:</p>
-        <input id='choice-text' type='text' name='survey[0][1]'/>
+  <hr>
+  <form id="surveyx" class='form-horizontal' action=<%= "/surveys/#{@survey.id}/questionsx" %> method="post">
+    <div id='question-group'>
+      <div id='question_0'>
+        <div class='form-group'>
+          <label class='form-label col-lg-1' for='question-text'>Question:</label>
+          <textarea class='col-lg-8' id='question-text' type='text' name='survey[0][0]'></textarea>
+        </div>
+        <div class='choice-group'>
+          <div class='form-group'>
+            <label class='form-label col-lg-1' for='choice_0'>Choice:</label>
+            <input class=' col-lg-8' id='choice_0' type='text' name='survey[0][1]'/>
+          </div>
+        </div>
+        <div class="btn btn-xs btn-default" id="add-choice">Add Choice</div>
       </div>
     </div>
-    <div class='question-group' id="question_1">
-      <label for='question-text'>Question:</label>
-      <input id='question-text' type='text' name='survey[1][0]'/>
-      <div class='choice-group' id='choices_1'>
-        <p>Choices:</p>
-        <input id='choice-text' type='text' name='survey[1][1]'/>
-      </div>
-    </div>
-    <input class="button" type="submit" value="Finish Survey"/>
+    <hr>
+    <div class="btn btn-xs btn-default" id="add-question">Add Question</div>
+    <hr>
+    <div><input class="btn btn-primary" type="submit" value="Finish Survey"/></div>
   </form>
 </div>
