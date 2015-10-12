@@ -4,18 +4,18 @@
   <hr>
   <form id="surveyx" class='form-horizontal' action=<%= "/surveys/#{@survey.id}/questionsx" %> method="post">
     <div id='question-group'>
-      <div id='question_0'>
+      <div class='question' id='question_0'>
         <div class='form-group'>
           <label class='form-label col-lg-1' for='question-text'>Question:</label>
           <textarea class='col-lg-8' id='question-text' type='text' name='survey[0][0]'></textarea>
         </div>
         <div class='choice-group'>
-          <div class='form-group'>
-            <label class='form-label col-lg-1' for='choice_0'>Choice:</label>
-            <input class=' col-lg-8' id='choice_0' type='text' name='survey[0][1]'/>
+          <div class='form-group choice'>
+            <label class='form-label col-lg-1' for='choice_0_1'>Choice:</label>
+            <input class='col-lg-8' id='choice_0_1' type='text' name='survey[0][1]'/>
           </div>
         </div>
-        <div class="btn btn-xs btn-default" id="add-choice">Add Choice</div>
+        <div class='add-choice btn btn-xs btn-default'>Add Choice</div>
       </div>
     </div>
     <hr>
