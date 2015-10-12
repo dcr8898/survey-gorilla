@@ -1,16 +1,16 @@
-<div id="container">
+<div class='container'>
   <h1>Profile info for <%= @user.username %>:</h1>
   <h6><a href="/users/<%= @user.id %>/edit">Edit profile</a></h6>
   <h2>Surveys created:</h2>
-  <ul>
+  <div class="list-group">
     <% @user.surveys.each do |survey| %>
-      <li><a href=<%= "/surveys/#{survey.id}" %>><%= survey.name %></a> <%= "(created #{survey.nice_date})" %></li>
+      <a href=<%= "/surveys/#{survey.id}" %> class="list-group-item"><%= survey.name %> <%= "(created #{survey.nice_date})" %></a>
     <% end %>
-  </ul>
+  </div>
   <h2>Polls taken:</h2>
-  <ul>
+  <div class="list-group">
     <% @user.polls.each do |poll| %>
-      <li><a href=<%= "/polls/#{poll.id}" %>><%= poll.survey_name %></a> <%= "(taken #{poll.nice_date})" %></li>
+      <a href=<%= "/polls/#{poll.id}" %> class="list-group-item"><%= poll.survey_name %> <%= "(taken #{poll.nice_date})" %></a>
     <% end %>
-  </ul>
+  </div>
 </div>

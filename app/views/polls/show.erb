@@ -2,7 +2,7 @@
   <h3>Survey: <%= @poll.survey_name %></h3>
   <h6><%= "(taken by #{@poll.taker} on #{@poll.nice_date})" %></h6>
   <% @poll.responses.each do |response| %>
-    <div>
+    <div class="well">
       <p>Question: <em><%= response.question.text %></em></p>
       <p> Response: <strong><%= response.text %></strong></p>
       <p>From these choices:</p>
