@@ -5,7 +5,11 @@ end
 
 get '/polls/new' do
   @surveys = Survey.all
-  erb :'polls/new'
+  if request.xhr?
+    erb :'polls/new', layout: false
+  else
+    erb :'polls/new'
+  end
 end
 
 get'/polls/:poll_id/responses' do |id|
@@ -31,12 +35,17 @@ get '/surveys/:survey_id/polls/new' do
 end
 
 post '/surveys/:survey_id/polls' do
-  poll = Poll.find(params[:response][:poll_id])
+  @poll = Poll.find(params[:response][:poll_id])
   choices = params[:response][:choices]
   choices.values.each do |choice|
-    Response.create(poll_id: poll.id, choice_id: choice)
+    Response.create(poll_id: @poll.id, choice_id: choice)
   end
-  redirect "/polls/#{poll.id}/responses"
+  
+  if request.xhr?
+    erb :'polls/show', layout: false
+  else  
+    redirect "/polls/#{@poll.id}/responses"
+  end
 end
 
 get '/polls/:id' do
